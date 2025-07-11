@@ -1,0 +1,146 @@
+body {
+  background-color: #0a1429;
+  background-image: radial-gradient(circle at 20% 35%, #162852 0%, transparent 50%),
+                    radial-gradient(circle at 80% 10%, #162852 0%, transparent 50%);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+/* Starry background */
+.starry-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;        
+  height: 100%;
+  z-index: -1;                                         
+  overflow: hidden;      
+}       
+
+.star {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: twinkle var(--duration) infinite ease-in-out;
+  opacity: var(--opacity);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: var(--opacity); }
+  50% { opacity: var(--opacity-half); }
+}
+
+/* Globe container */
+#globe-container {   
+  width: 100%;          
+  height: 400px;
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#globe-container canvas {
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(30, 144, 255, 0.2);
+}
+
+/* Weather information */
+#weatherSlice {
+  transition: all 0.5s ease-out;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+#weatherSlice.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Search elements */
+.search-box {
+  background-color: white;
+  border-radius: 30px;
+  padding: 8px 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 8px;
+  font-size: 18px;
+  background: transparent;
+}
+
+.search-button {
+  background-color: #3498db;
+  color: white;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.search-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(52, 152, 219, 0.4);
+}
+
+/* Menu button */
+.menu-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Sidebar */
+#sidebar {
+  background-color: #0f2547;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.history-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.history-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Glow effect for the globe */
+.globe-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(30, 144, 255, 0.2) 0%, rgba(30, 144, 255, 0) 70%);
+  pointer-events: none;
+}
